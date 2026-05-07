@@ -24,7 +24,7 @@ public final class Logic {
         for (Figure figure : figures) {
             for (Cell cell : steps) {
                 if (figure.position().equals(cell)) {
-                    throw new OccupiedCellException();
+                    throw new OccupiedCellException("Occupied cell, way is locked.");
                 }
             }
         }

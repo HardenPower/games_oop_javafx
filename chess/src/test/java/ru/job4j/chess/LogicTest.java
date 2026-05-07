@@ -36,8 +36,9 @@ public class LogicTest {
         Logic logic = new Logic();
         logic.add(new BishopBlack(Cell.C1));
         logic.add(new PawnBlack(Cell.D2));
-        assertThrows(OccupiedCellException.class, () -> {
+        OccupiedCellException exception = assertThrows(OccupiedCellException.class, () -> {
             logic.move(Cell.C1, Cell.G5);
         });
+        assertThat(exception.getMessage()).isEqualTo("Occupied cell, way is locked.");
     }
 }
